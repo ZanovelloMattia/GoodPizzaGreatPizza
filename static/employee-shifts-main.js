@@ -134,7 +134,8 @@ async function askChange() {
                 'questioner_index': dropIndex1,
                 'questioned_id': employee2,
                 'questioned_day_id': idQuestionedDay,
-                'questioned_index': dropIndex2
+                'questioned_index': dropIndex2,
+                'timestamp': timestamp
             })
         })
         console.log('completed', response)

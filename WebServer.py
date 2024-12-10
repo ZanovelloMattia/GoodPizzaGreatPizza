@@ -530,6 +530,7 @@ class Server_handler(BaseHTTPRequestHandler):
         # Controlla se l'utente è un dipendente (permesso 1)
         if self.permission == 1:
             # Genera e ritorna la pagina HTML con le richieste
+        
             requests_page = RM.get_html_requests(self.id)
             return 200, requests_page
         else:
@@ -552,13 +553,17 @@ class Server_handler(BaseHTTPRequestHandler):
             questioned_id = int(post_data['questioned_id'])
             questioned_day_id = int(post_data['questioned_day_id'])
             questioned_index = int(post_data['questioned_index'])
+            timestamp = datetime.datetime.strptime(post_data['timestamp'], "%Y-%m-%d %H:%M:%S.%f")
             
             # Recupera l'ID della pizzeria associata all'utente
             employee = DB.get_employee(self.id)
             id_pizzeria = employee['id_pizzeria']
             
+            print(questioner_index)
+            print(questioned_index)
+            
             # Inserisce la richiesta nel database
-            DB.insert_request(id_pizzeria, questioner_id, questioner_day_id, questioner_index, questioned_id, questioned_day_id, questioned_index)
+            DB.insert_request(id_pizzeria, timestamp, questioner_id, questioner_day_id, questioner_index, questioned_id, questioned_day_id, questioned_index)
             
             # Ritorna la pagina aggiornata con i turni dei dipendenti
             return 200, SM.generate_html_employee_shifts(self.id)

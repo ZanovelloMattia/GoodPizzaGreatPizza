@@ -1,10 +1,18 @@
 import DatabaseManager as DB
+import datetime
 
 main_html_employee_template = ''
 page_html_template = ''
 request_html_template = ''
 pending_request_template = ''
 
+num_to_day = {
+    0: 'Lunedì',
+    1: 'Martedì',
+    2: 'Mercoledì',
+    3: 'Giovedì',
+    4: 'Venerdì',
+}
 
 def get_html_requests(employee_id) -> str:
     # Funzione per generare l'HTML delle richieste di un dipendente
@@ -20,38 +28,68 @@ def get_html_requests(employee_id) -> str:
     
     request_html = ''
     
+    print("bobmbo clasrt")
+    
     # Cicla sulle richieste ricevute e genera l'HTML per ognuna
     for request_id, request in requests.items():  # TODO: calcolare il giorno specifico
+        timestamp = request['timestamp']
+        shifts = DB.get_shift_from_timestamp(employee['id_pizzeria'], timestamp)
+        
         request_from = DB.get_employee(request['ID_questioner'])  # Ottiene il dipendente che ha fatto la richiesta
         questioned_day = DB.get_day(request['ID_questioned_day'])  # Ottiene il giorno corrente del dipendente ricevente
         questioned_index = request['questioned_index']  # Ottiene il turno corrente
         questioner_day = DB.get_day(request['ID_questioner_day'])  # Ottiene il giorno desiderato dal richiedente
         questioner_index = request['questioner_index']  # Ottiene il turno desiderato
         
+        questioned_day_index = 0
+        questioner_day_index = 0
+        counter = 0
+            
+        for day_id in shifts.keys():
+            print(day_id)
+            if day_id == request['ID_questioned_day']:
+                questioned_day_index = counter
+            if day_id == request['ID_questioner_day']:
+                questioner_day_index = counter
+            counter += 1
+        
         # Sostituisce i placeholder nel template con i dati reali
         request_html += (request_html_template.replace('%name%', request_from['name'])
                          .replace('%surname%', request_from['surname'])
-                         .replace('%current-day%', str(request['ID_questioned_day']))
-                         .replace('%current-shift%', str(questioned_index))
-                         .replace('%desired-day%', str(request['ID_questioner_day']))
-                         .replace('%desired-shift%', str(questioner_index))
+                         .replace('%current-day%', num_to_day[questioned_day_index])
+                         .replace('%current-shift%', f"{str(questioned_index)}°")
+                         .replace('%desired-day%', num_to_day[questioner_day_index])
+                         .replace('%desired-shift%', f"{str(questioner_index)}°")
                          .replace('%id%', str(request_id)))
     
     # Cicla sulle richieste pendenti e genera l'HTML per ognuna
     for pending_request_id, pending_request in pending_requests.items():
+        shifts = DB.get_shift_from_timestamp(employee['id_pizzeria'], pending_request['timestamp'])
+
+        
         request_to = DB.get_employee(pending_request['ID_questioned'])  # Ottiene il dipendente destinatario
-        questioner_day = DB.get_day(pending_request['ID_questioner_day'])  # Ottiene il giorno corrente del richiedente
         questioner_index = pending_request['questioner_index']  # Ottiene il turno corrente
-        questioned_day = DB.get_day(pending_request['ID_questioned_day'])  # Ottiene il giorno desiderato
         questioned_index = pending_request['questioned_index']  # Ottiene il turno desiderato
+        
+        questioner_day_index = 0
+        questioned_day_index = 0
+        counter = 0
+        
+        for day_id in shifts.keys():
+            print(day_id)
+            if day_id == pending_request['ID_questioned_day']:
+                questioned_day_index = counter
+            if day_id == pending_request['ID_questioner_day']:
+                questioner_day_index = counter
+            counter += 1
         
         # Sostituisce i placeholder nel template con i dati reali
         request_html += (pending_request_template.replace('%name%', request_to['name'])
                          .replace('%surname%', request_to['surname'])
-                         .replace('%current-day%', str(pending_request['ID_questioner_day']))
-                         .replace('%current-shift%', str(questioner_index))
-                         .replace('%desired-day%', str(pending_request['ID_questioned_day']))
-                         .replace('%desired-shift%', str(questioned_index))
+                         .replace('%current-day%', num_to_day[questioner_day_index])
+                         .replace('%current-shift%', f"{str(questioner_index)}°")
+                         .replace('%desired-day%', num_to_day[questioned_day_index])
+                         .replace('%desired-shift%', f"{str(questioned_index)}°")
                          .replace('%id%', str(pending_request_id)))
     
     # Inserisce tutte le richieste nel contenuto della pagina

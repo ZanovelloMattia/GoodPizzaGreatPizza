@@ -216,6 +216,7 @@ def generate_html_employee_shifts(id: int) -> str:
                           .replace("%id%", str(employee["id"])))
 
         day_html = day_html.replace("%day-comps%", day_comps).replace("%id%", str(day_id))
+        counter += 1
         
     start_of_week = last_timestamp - datetime.timedelta(days=last_timestamp.weekday())  # Calcola inizio settimana
     end_of_week = start_of_week + datetime.timedelta(days=6)  # Calcola fine settimana

@@ -83,6 +83,7 @@ def create_table_requests():
     c.execute("""CREATE TABLE IF NOT EXISTS requests (
                 ID_request INTEGER NOT NULL PRIMARY KEY,
                 ID_pizzeria INTEGER NOT NULL,
+                timestamp TIMESTAMP NOT NULL,
                 ID_questioner INTEGER NOT NULL,
                 ID_questioner_day INTEGER NOT NULL,
                 questioner_index INTEGER NOT NULL,
@@ -162,9 +163,9 @@ def upload_shift(shift_dict, ID_pizzeria) -> int:
 
     return ID_shift
     
-def insert_request(ID_pizzeria: int, ID_questioner: int, ID_questioner_day: int, questioner_index: int, ID_questioned: int, ID_questioned_day: int, questioned_index: int) -> int:
-    c.execute("INSERT INTO requests (id_pizzeria, ID_questioner, ID_questioner_day, questioner_index, ID_questioned, ID_questioned_day, questioned_index) VALUES (?, ?, ?, ?, ?, ?, ?)",
-              (ID_pizzeria, ID_questioner, ID_questioner_day, questioner_index, ID_questioned, ID_questioned_day, questioned_index))
+def insert_request(ID_pizzeria: int, timestamp: datetime.datetime, ID_questioner: int, ID_questioner_day: int, questioner_index: int, ID_questioned: int, ID_questioned_day: int, questioned_index: int) -> int:
+    c.execute("INSERT INTO requests (id_pizzeria, timestamp, ID_questioner, ID_questioner_day, questioner_index, ID_questioned, ID_questioned_day, questioned_index) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+              (ID_pizzeria, timestamp, ID_questioner, ID_questioner_day, questioner_index, ID_questioned, ID_questioned_day, questioned_index))
     c.execute("SELECT last_insert_rowid();")
     number = c.fetchone()
     return number[0]     
@@ -534,52 +535,55 @@ def get_session_from_uuid(session_uuid) -> dict:
         return session_dict
 
 def get_request(request_id) -> dict:
-    c.execute("SELECT ID_pizzeria, ID_questioner, ID_questioner_day, questioner_index, ID_questioned, ID_questioned_day, questioned_index FROM requests WHERE ID_request = ?", (request_id,))
+    c.execute("SELECT ID_pizzeria, timestamp, ID_questioner, ID_questioner_day, questioner_index, ID_questioned, ID_questioned_day, questioned_index FROM requests WHERE ID_request = ?", (request_id,))
     item = c.fetchone()
 
     if item is None:
         return None
     elif len(item) != 0:
         ID_pizzeria = item[0]
-        ID_questioner = item[1]
-        ID_questioner_day = item[2]
-        questioner_index = item[3]
-        ID_questioned = item[4]
-        ID_questioned_day = item[5]
-        questioned_index = item[6]
-        return {'ID_pizzeria': ID_pizzeria, 'ID_questioner': ID_questioner, 'ID_questioner_day': ID_questioner_day, 'questioner_index': questioner_index, 'ID_questioned': ID_questioned, 'ID_questioned_day': ID_questioned_day, 'questioned_index': questioned_index}
+        timestamp = item[1]
+        ID_questioner = item[2]
+        ID_questioner_day = item[3]
+        questioner_index = item[4]
+        ID_questioned = item[5]
+        ID_questioned_day = item[6]
+        questioned_index = item[7]
+        return {'ID_pizzeria': ID_pizzeria, 'timestamp': timestamp, 'ID_questioner': ID_questioner, 'ID_questioner_day': ID_questioner_day, 'questioner_index': questioner_index, 'ID_questioned': ID_questioned, 'ID_questioned_day': ID_questioned_day, 'questioned_index': questioned_index}
 
 def get_questioner_requests(questioner_id: int) -> dict:
-    c.execute("SELECT ID_request, ID_pizzeria, ID_questioner_day, questioner_index, ID_questioned, ID_questioned_day, questioned_index FROM requests WHERE ID_questioner = ?", (questioner_id,))
+    c.execute("SELECT ID_request, timestamp, ID_pizzeria, ID_questioner_day, questioner_index, ID_questioned, ID_questioned_day, questioned_index FROM requests WHERE ID_questioner = ?", (questioner_id,))
     items = c.fetchall() 
     employees_dict = {}
 
     for item in items:
         ID_request = item[0]
-        ID_pizzeria = item[1]
-        ID_questioner_day = item[2]
-        questioner_index = item[3]
-        ID_questioned = item[4]
-        ID_questioned_day = item[5]
-        questioned_index = item[6]
-        employees_dict[ID_request] = {'ID_pizzeria': ID_pizzeria, 'ID_questioner_day': ID_questioner_day, 'questioner_index': questioner_index, 'ID_questioned': ID_questioned, 'ID_questioned_day': ID_questioned_day, 'questioned_index': questioned_index}
+        timestamp = item[1]
+        ID_pizzeria = item[2]
+        ID_questioner_day = item[3]
+        questioner_index = item[4]
+        ID_questioned = item[5]
+        ID_questioned_day = item[6]
+        questioned_index = item[7]
+        employees_dict[ID_request] = {'ID_pizzeria': ID_pizzeria, 'timestamp': timestamp, 'ID_questioner_day': ID_questioner_day, 'questioner_index': questioner_index, 'ID_questioned': ID_questioned, 'ID_questioned_day': ID_questioned_day, 'questioned_index': questioned_index}
 
     return employees_dict
 
 def get_questioned_requests(questioned_id: int) -> dict:
-    c.execute("SELECT ID_request, ID_pizzeria, ID_questioner, ID_questioner_day, questioner_index, ID_questioned_day, questioned_index FROM requests WHERE ID_questioned = ?", (questioned_id,))
+    c.execute("SELECT ID_request, timestamp, ID_pizzeria, ID_questioner, ID_questioner_day, questioner_index, ID_questioned_day, questioned_index FROM requests WHERE ID_questioned = ?", (questioned_id,))
     items = c.fetchall() 
     employees_dict = {}
 
     for item in items:
         ID_request = item[0]
-        ID_pizzeria = item[1]
-        ID_questioner = item[2]
-        ID_questioner_day = item[3]
-        questioner_index = item[4]
-        ID_questioned_day = item[5]
-        questioned_index = item[6]
-        employees_dict[ID_request] = { 'ID_pizzeria': ID_pizzeria, 'ID_questioner': ID_questioner, 'ID_questioner_day': ID_questioner_day, 'questioner_index': questioner_index, 'ID_questioned_day': ID_questioned_day, 'questioned_index': questioned_index}
+        timestamp = item[1]
+        ID_pizzeria = item[2]
+        ID_questioner = item[3]
+        ID_questioner_day = item[4]
+        questioner_index = item[5]
+        ID_questioned_day = item[6]
+        questioned_index = item[7]
+        employees_dict[ID_request] = { 'ID_pizzeria': ID_pizzeria, 'timestamp': timestamp, 'ID_questioner': ID_questioner, 'ID_questioner_day': ID_questioner_day, 'questioner_index': questioner_index, 'ID_questioned_day': ID_questioned_day, 'questioned_index': questioned_index}
 
     return employees_dict
 
