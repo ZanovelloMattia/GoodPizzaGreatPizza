@@ -1,0 +1,328 @@
+.new-employee {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+}
+
+.new-employee-header {
+    padding: 1.5rem;
+    background-color: var(--bg-color-2);
+    border: 1px solid var(--bg-color-3);
+    border-radius: 8px;
+}
+
+.new-employee h2 {
+    text-align: center;
+    font-size: 32px;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.new-form {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    gap: 10px;
+    text-align: left;
+    background-color: var(--bg-color);
+    border: 1px solid var(--bg-color-3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 10%;
+}
+
+.new-form label {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.new-form input {
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.new-form button {
+    border: none;
+    background-color: var(--save-color);
+    color: var(--white);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.employees-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    width: 90%;
+    margin: 2rem auto;
+    background-color: var(--bg-color-2);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+}
+
+.employees-header h2 {
+    text-align: center;
+    font-size: 32px;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.employees-header p {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.employees {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px auto;
+    width: 90%;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 2rem;
+}
+
+.add-employee {
+    flex: 0 0 100%;
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    /*color: var(--white);*/
+}
+
+#add-employee {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: var(--add-color);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: var(--white);
+}
+
+.add-employee p {
+    margin: 0;
+}
+
+.add-employee button:hover {
+    background-color: var(--add-hover-color);
+    transform: scale(1.04);
+}
+
+.new-section {
+    flex: 0 0 100%;
+}
+
+.new-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    background-color: var(--bg-color-2);
+    padding: .5rem;
+    border: 1px solid var(--border-color-2);
+    border-radius: 8px;
+}
+
+.new-form label {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.new-form input {
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.new-form button {
+    border: none;
+    background-color: var(--save-color);
+    color: var(--white);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.employee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--border-color-2);
+    border-radius: 8px;
+    padding: 10px;
+    width: 220px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0 5px;
+}
+
+.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    border: 2px solid var(--border-color-2);
+}
+
+.profile-info .name {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.profile-info .birthdate {
+    font-size: 14px;
+    color: var(--text-color-3);
+}
+
+.actions {
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.actions button {
+    background-color: var(--border-color);
+    border: none;
+    color: var(--white);
+    padding: .4rem 1rem;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.actions button:hover {
+    background-color: var(--text-color-2);
+}
+
+.edit-section {
+    width: 100%;
+}
+
+.edit-section p {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0 0 .5rem;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+.edit-form label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.edit-form input {
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.edit-form button {
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.edit-form .save-btn {
+    background-color: var(--save-color);
+}
+
+.edit-form .save-btn:hover {
+    background-color: var(--save-hover-color);
+}
+
+.subbutton {
+    display: flex;
+}
+
+.edit-form .delete-btn {
+    background-color: var(--decline-color);
+    flex: auto;
+    margin: 0 0 0 2.5px;
+}
+
+.edit-form .delete-btn:hover {
+    background-color: var(--decline-hover-colo);
+}
+
+.edit-form .cancel-modification-btn {
+    background-color: var(--modify-color);
+    margin: 0 2.5px 0 0;
+}
+
+.edit-form .cancel-modification-btn:hover {
+    background-color: var(--modify-hover-color);
+}
+
+.error {
+    color: white;
+    background-color: rgb(255, 124, 124);
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+.error p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}

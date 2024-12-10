@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lobster&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #fff8e1;
+    --bg-color-2: #ffe0b2;
+    --bg-color-3: #ffcc80;
+    --border-color: #ff7043;
+    --border-color-2: #ffab91;
+    --text-color: #4e342e;
+    --text-color-2: #e64a19;
+    --text-color-3: #6d4c41;
+    --white: #ffffff;
+    --save-color: #43a047;
+    --save-hover-color: #2e7d32;
+    --decline-color: #e53935;
+    --decline-hover-color: #b71c1c;
+    --modify-color: #42a5f5;
+    --modify-hover-color: #1e88e5;
+    --add-color: #70b173;
+    --add-hover-color: #5c945f;
+
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.main-header {
+    background-color: var(--border-color);
+    color: var(--white);
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    display: flex;
+}
+
+.main-header h1 {
+    flex: 1;
+    margin: 20px;
+}
+
+.main-container {
+    display: flex;
+    min-height: calc(100vh - 115px);
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: var(--bg-color-3);
+    box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: block;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.sidebar a:hover {
+    background-color: var(--border-color);
+    color: white;
+}
+
+.sidebar a.active {
+    background-color: var(--text-color-2);
+    color: white;
+}
+
+.content {
+    width: 100%;
+    margin: 0 auto;
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+}
+
+/*.bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    background-image: url('img/background_login.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}*/
+
+.inline {
+    display: inline !important;
+}
+
+.logo-img {
+    width: 190px;
+    padding: .5rem;
+}

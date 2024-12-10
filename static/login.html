@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8"> <!-- Specifica la codifica dei caratteri -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Design responsivo -->
+    <title>Login</title> <!-- Titolo della pagina -->
+    <link rel="stylesheet" type="text/css" href="style.css" /> <!-- Collegamento al file CSS -->
+</head>
+<body>
+    <!-- Form per il login -->
+    <form action="login" method="post" class="form">
+        <!-- Contenitore per l'immagine profilo -->
+        <div class="imgprofile">
+            <img src='img/profile_login.jpeg' class="profile">
+        </div> 
+
+        <div class="error" style="display: %display-error%;">
+            <p>%error%</p>
+        </div>
+
+        <!-- Sezione campi di login -->
+        <div class="login">
+            <!-- Campo per il nome del gestore -->
+            <div class="gestore">
+                <label for="owner_name">Nome del gestore:</label><br> <!-- Etichetta per il campo -->
+                <input class="InputGestore" type="text" placeholder="Inserici Gestore" name="owner_name" id="owner_name"><br> <!-- Input per il nome del gestore -->
+            </div>
+            <!-- Campo per il nome della pizzeria -->
+            <div class="gestore">
+                <label for="name">Nome della pizzeria:</label><br> <!-- Etichetta per il campo -->
+                <input type="text" placeholder="Inserisci Nome Pizzeria" name="name" id="name"><br> <!-- Input per il nome della pizzeria -->
+            </div>
+            <!-- Pulsante per accedere -->
+            <input class="inputlogin" type="submit" value="Accedi">
+            <!-- Sezione di registrazione -->
+            <div class="register">
+                <p>Non hai ancora un account? <a href="register" style="color: black;">Registrati</a></p> <!-- Link per registrarsi -->
+                <p>Sei un dipendente? <a href="employee-login" style="color: black;">Accedi</a></p> <!-- Link per il login dei dipendenti -->
+            </div>
+        </div>
+    </form>
+</body>
+</html>

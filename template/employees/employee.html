@@ -1,0 +1,35 @@
+<div class="employee">
+    <div class="profile">
+        <img src="img/img_unknown_profile.png" alt="Profile Picture" class="profile-pic">
+        <div class="profile-info">
+            <p class="name">%name% %surname%</p>
+            <p class="birthdate">%birthdate%</p>
+            <p class="birthdate inline">Codice: </p>
+            <p class="id birthdate inline">%id%</p>
+            <p class="birthdate">Ore settimana %hours%</p>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="edit-btn">Modifica</button>
+        <button class="delete-btn">Elimina</button>
+    </div>
+    <div class="edit-section" style="display: none;">
+        <p>Apporta le modifche</p>
+        <form class="edit-form">
+            <div class="error" id="modify-emplyee-error" style="display: none;">
+                <p></p>
+            </div>
+            <label for="name-input">Nome:</label>
+            <input type="text" id="name-input" value="%name%">
+            <label for="surname-input">Cognome:</label>
+            <input type="text" id="surname-input" value="%surname%">
+            <label for="birthdate-input">Data di Nascita:</label>
+            <input type="date" id="birthdate-input" value="%not-formatted-birthdate%">
+            <button type="button" class="save-btn">Salva</button>
+            <div class="subbutton">
+                <button type="button" class="cancel-modification-btn">Annulla Modifiche</button>
+                <button type="button" class="delete-btn">Elimina</button>
+            </div>
+        </form>
+    </div>
+</div>

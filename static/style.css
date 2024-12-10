@@ -1,0 +1,132 @@
+/* Impostazioni generali per il corpo della pagina */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('img/background_login.jpg'); /* Immagine di sfondo */
+    background-repeat: no-repeat; /* L'immagine non si ripete */
+    background-attachment: fixed; /* L'immagine rimane fissa durante lo scroll */
+    background-size: cover; /* L'immagine copre l'intero schermo */
+    user-select: none; /* Disabilita la selezione del testo */
+    overflow-y: hidden; /* Disabilita lo scroll verticale */
+    display: flex; /* Layout flessibile */
+    justify-content: center; /* Allineamento orizzontale al centro */
+    align-items: center; /* Allineamento verticale al centro */
+    height: 100vh; /* Altezza della viewport */
+}
+
+/* Margini per gli input */
+input {
+    margin: 5px;    
+}
+
+/* Sezione immagine profilo */
+.imgprofile {
+    text-align: center; /* Allinea l'immagine al centro */
+    margin-top: 30px;
+    height: 150px;
+}
+
+/* Stile per le etichette dei campi */
+form .gestore label {
+    font-size: 20px; /* Dimensione del testo */
+    color: rgb(0, 0, 0); /* Colore del testo */
+    text-align: justify; /* Allinea il testo giustificato */
+}
+
+/* Stile per gli input dei campi */
+form .gestore input {
+    height: 40px; /* Altezza del campo */
+    width: 300px; /* Larghezza del campo */
+    padding-left: 10px; /* Spaziatura a sinistra */
+    font-size: 17px; /* Dimensione del testo */
+    border: 1px solid rgb(0, 0, 0, 0.2); /* Bordo leggero */
+    background-color: #ffcc80; /* Colore di sfondo */
+    color: rgb(0, 0, 0); /* Colore del testo */
+    border-radius: 10px; /* Bordo arrotondato */
+}
+
+/* Margine inferiore per il campo "Nome del gestore" */
+.InputGestore {
+    margin-bottom: 15px;
+}
+
+/* Stile del pulsante di login */
+.inputlogin {
+    font-size: 20px; /* Dimensione del testo */
+    margin: 20px 0 0; /* Margini superiore e inferiore */
+    height: 45px; /* Altezza del pulsante */
+    position: relative;
+    overflow: hidden; /* Nasconde il contenuto in eccesso */
+    background-color: #ff7b53; /* Colore di sfondo */
+    border-radius: 10px; /* Bordo arrotondato */
+    border: 1px solid rgb(0, 0, 0, 0.2); /* Bordo leggero */
+    transition: all 0.2s ease-in-out;
+}
+
+.inputlogin:hover {
+    background-color: #ff7043;
+}
+
+.inputlogin:hover {
+    background-color: #ff7043;
+}
+
+/* Stile per la sezione registrazione */
+.register {
+    color: black; /* Colore del testo */
+    font-size: 17px; /* Dimensione del testo */
+    margin: 0;
+   
+}
+
+.register p {
+    margin: 10px 0 0;
+}
+
+/* Stile per l'immagine profilo */
+.profile {
+    width: 130px; /* Larghezza */
+    height: 130px; /* Altezza */
+    margin-top: -1em; /* Margine superiore negativo */
+    margin-bottom: 3em; /* Margine inferiore */
+    border-radius: 20px; /* Bordo arrotondato */
+    box-shadow: rgba(49, 45, 45, 0.76); /* Ombreggiatura */
+}
+
+/* Stile per la sezione login */
+.login {
+    margin: 30px 0 0 0; /* Margini */
+    padding: 1em; /* Spazi interni */
+    display: flex; /* Layout flessibile */
+    flex-direction: column; /* Disposizione verticale */
+    gap: 8px; /* Spaziatura tra gli elementi */
+    color: hsl(0deg 0% 30%); /* Colore del testo */
+    margin: 0; /* Margine superiore negativo */
+}
+
+/* Stile del form */
+.form {
+    font-family: 'Poppins', sans-serif; /* Font del testo */
+    background-color: #ffe0b2; /* Colore di sfondo */
+    padding: 1.5em 1.5em .3em;
+    display: flex; /* Layout flessibile */
+    flex-direction: column; /* Disposizione verticale */
+    border-radius: 40px; /* Bordo arrotondato */
+    width: 390px;
+}
+
+.error {
+    color: white;
+    background-color: rgb(255, 124, 124);
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+.error p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}

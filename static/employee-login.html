@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="style.css" /> 
+</head>
+<body>
+    <form action="employee-login" method="post"class = "form">
+        <div class="imgprofile">
+            <img src='img/profile_login.jpeg' class="profile">
+        </div> 
+
+        <div class="error" style="display: %display-error%;">
+            <p>%error%</p>
+        </div>
+
+        <div class= "login">
+            <div class= "gestore">
+                <label for="id">Codice:</label><br>
+                <input  class= "InputGestore" type="text" placeholder="Inserici il tuo codice" name="id" id="id"><br>
+            </div>
+            <div class= "gestore">
+                <label  for="name">Nome della pizzeria:</label><br>
+                <input type="text" placeholder="Inserisci Nome Pizzeria" name="name" id="name"><br>
+            </div>
+                <input class="inputlogin" type="submit" value="Accedi">
+                <div class="register">
+                    <p>Sei un gestore? <a href="/login" style="color: black;">Login come gestore</a></p>
+                </div>
+        </div>
+    </form>
+</body>
+</html>

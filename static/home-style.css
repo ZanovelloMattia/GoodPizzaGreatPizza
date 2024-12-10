@@ -1,0 +1,77 @@
+/* Barra laterale di navigazione */
+.sidenav {
+    height: 100%; /* Altezza completa della finestra */
+    width: 300px; /* Larghezza della barra laterale */
+    position: fixed; /* Posizione fissa durante lo scroll */
+    z-index: -1; /* Posizionata sotto altri elementi */
+    top: 0; /* Fissata nella parte superiore */
+    left: 0; /* Allineata a sinistra */
+    background-color: #ffcc80; /* Colore di sfondo arancione chiaro */
+    overflow: hidden; /* Nasconde il contenuto che esce dai limiti */
+    padding-top: 100px; /* Spazio interno nella parte superiore */
+}
+
+/* Stile dei link nella barra laterale */
+.sidenav a {
+   padding: 0px 0px 60px 25px; /* Spazi interni */
+   text-decoration: none; /* Rimuove la sottolineatura */
+   font-size: 30px; /* Dimensione del testo */
+   text-align: center; /* Allineamento centrato */
+}
+
+/* Stile del header */
+header {
+    height: 110px; /* Altezza fissa */
+    width: 100%; /* Larghezza completa */
+    padding: 0 20px; /* Spazi interni */
+    background-color: #ff5100cb; /* Colore di sfondo arancione scuro */
+    position: fixed; /* Fissato in cima alla pagina */
+    top: 0; /* Posizione superiore */
+    left: 0; /* Allineato a sinistra */
+    z-index: 100; /* In primo piano rispetto agli altri elementi */
+    display: flex; /* Layout flessibile */
+    justify-content: space-between; /* Spaziatura tra logo e immagine profilo */
+    align-items: center; /* Allineamento verticale */
+    box-sizing: border-box; /* Include padding e bordi nelle dimensioni */
+}
+
+/* Stile del logo */
+.logo {
+    width: 155px; /* Larghezza del logo */
+    height: 155px;
+    max-height: 80px; /* Altezza massima */
+    height: auto; /* Regola proporzioni automaticamente */
+}
+
+/* Contenitore per immagine profilo */
+.dp {
+    display: flex; /* Layout flessibile */
+    align-items: center; /* Allineamento verticale */
+    justify-content: center; /* Allineamento orizzontale */
+    height: 60px; /* Altezza fissa */
+    width: 60px; /* Larghezza fissa */
+    overflow: visible; /* Assicura che nulla venga tagliato */
+    flex-shrink: 0; /* Evita ridimensionamento */
+}
+
+/* Immagine profilo */
+.dpicn {
+    height: 100%; /* Altezza intera del contenitore */
+    width: 100%; /* Larghezza intera del contenitore */
+    border-radius: 50%; /* Forma circolare */
+    border: 2px solid white; /* Bordo bianco */
+    object-fit: cover; /* Adatta immagine senza distorcerla */
+}
+
+/* Barra decorativa superiore */
+.topBar {
+    height: 100px; /* Altezza fissa */
+    width: 2000px; /* Larghezza */
+    position: fixed; /* Fissata in alto */
+    top: 0; /* Posizionata nella parte superiore */
+    z-index: -1; /* Sotto gli altri elementi */
+    left: 0px; /* Allineata a sinistra */
+    background-color: #b46e5ea8; /* Colore di sfondo */
+    overflow-x: hidden; /* Disabilita lo scroll orizzontale */
+    padding-top: 10px; /* Spazio interno superiore */
+}

@@ -1,0 +1,328 @@
+.shifts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 auto;
+    padding: 10px;
+}
+
+.shifts-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    width: 90%;
+    margin-bottom: 2rem;
+    background-color: var(--bg-color-2);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+}
+
+.shifts-header h2 {
+    text-align: center;
+    font-size: 32px;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.shifts-header p {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.shifts-description {
+    width: 80%;
+    display: flex;
+    justify-content: left;
+    align-items: center; 
+    margin-top: 1rem;
+}
+
+/*.shifts-description p {
+    color: var(--white);
+}*/
+
+.shifts-timestamp {
+    position: relative;
+    display: flex;
+    width: 225px;
+    height: 45px;
+    background: var(--bg-color-2);
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0 3rem;
+}
+
+.shifts-timestamp::after {
+    content: '\25BC';
+    height: 45px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    background: var(--bg-color-3);
+    color: var(--text-color);
+    cursor: pointer;
+    pointer-events: none;
+    transition: .25s all ease;
+    
+}
+
+.shifts-timestamp:hover::after {
+    color: var(--border-color);
+}
+
+.shifts-timestamp select{
+    appearance: none;
+    box-shadow: none;
+    border: 0;
+    outline: 0;
+    background: var(--bg-color-2);
+    width: 100%;
+    padding: 0 .5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.week {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: .4rem auto;
+    max-width: 95%;
+    padding: .7rem;
+}
+
+.day {
+    width: 225px;
+    margin: 10px;
+    padding: 10px;
+    background: var(--bg-color-2);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.day-title h3 {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-color-2);
+    margin-bottom: 10px;
+}
+
+.employee { 
+    margin: 15px auto;
+    padding: 20px 10px;
+    background-color: var(--white);
+    border-radius: 10px;
+    border: 2px solid var(--border-color-2);
+    box-shadow: 0px 4px 6px rgba(24, 22, 22, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+}
+
+.employee:hover {
+    background: var(--bg-color);
+    transform: scale(1.03);
+}
+
+.employee:last-child { 
+    margin: 5px auto;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.profile-info {
+    padding: 0 .5rem;
+}
+
+.profile-info .name {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.profile-info .birthdate {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.ask-change{
+    display: none;
+    width: 85%;
+    border: none;
+    background-color: var(--save-color);
+    color: var(--white);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.ask-change:hover {
+    background-color: var(--save-hover-color);
+    transform: scale(1.05);
+}
+
+.buttons-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.buttons-section h2 {
+    font-size: 24px;
+    color: #b71c1c;
+}
+
+.buttons-section p {
+    color: #6d4c41;
+    margin-bottom: 15px;
+}
+
+.buttons button {
+    background-color: #ff7043;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.buttons button:hover {
+    background-color: #d84315;
+}
+
+.employees {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.employees .employee {
+    margin: 10px;
+    width: 200px;
+}
+
+.employees .employee:hover {
+    background: var(--bg-color-2);
+    transform: scale(1.03);
+}
+
+.swap-section .swap-employee {
+    margin: 0;
+}
+
+.swap-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+    padding: .8rem;
+    text-align: center;
+    background-color: var(--bg-color-2);
+    border-radius: 10px;
+    border: 2px solid var(--border-color-2);
+    box-shadow: 0px 4px 6px rgba(24, 22, 22, 0.1);
+}
+
+.swap-description h3{
+    font-size: 24px;  
+    margin-bottom: 5px;
+}
+
+.swap-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.drop-area {
+    border: 2px dashed #cccccc;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 200px;
+    height: 90px;
+    background-color: #f9f9f9;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.drop-area-full {
+    border: none;
+    display: block;
+}
+
+.drop-area.drag-over {
+    background-color: #e8f7e4;
+    border-color: #76c7c0;
+}
+
+.drop-area p {
+    margin: 0;
+    color: #999;
+    font-size: 14px;
+}
+
+button#ask-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button#ask-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+
+}
+
+.error {
+    color: white;
+    background-color: rgb(255, 124, 124);
+    padding: .5rem;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.error p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}

@@ -1,0 +1,41 @@
+<div class="shifts">
+    <p id="timestamp" style="display: none;">%timestamp%</p>
+    <div class="shifts-header">
+        <div class="shifts-title">
+            <h2>Turni della settimana %start-week% fino %end-week%</h2>
+            <p>Visualizza e chiedi di scambiare i turni di questo settimana.</p>
+        </div>
+
+    </div>
+    <div class="week">
+        %days%
+    </div>
+
+    <div class="error" id="swap-error" style="display: none;">
+        <p></p>
+    </div>
+
+    <div class="swap-section">
+        <div class="swap-description">
+            <h3>Scambia Turni</h3>
+            <p>Trascina due dipendenti qui sotto per scambiare i loro turni.</p>
+        </div>
+        <div class="swap-input">
+            <div class="drop-area" id="drop-area-1">
+                <p>Trascina un dipendente qui</p>
+            </div>
+            <div class="drop-area" id="drop-area-2">
+                <p>Trascina un altro dipendente qui</p>
+            </div>
+            <button id="ask-button" disabled>Conferma Scambio</button>
+        </div>
+    </div>
+
+    <div class="buttons-section">
+        <div class="buttons">
+            <button id="download-pdf" >Scarica PDF</button>
+            <button id="download-img">Scarica Immagine</button>
+        </div>
+    </div>
+</div>
+<script src="employee-shifts-main.js"></script>

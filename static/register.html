@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">  <!-- Specifica la codifica dei caratteri -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Design responsivo -->
+    <title>Register</title> <!-- Titolo della pagina -->
+    <link rel="stylesheet" type="text/css" href="style.css" /> <!-- Collegamento al file CSS -->
+</head>
+<body>
+    <!-- Form per il login -->
+    <form action="register" method="post"class = "form">
+        <!-- Contenitore per l'immagine profilo -->
+        <div class="imgprofile">
+            <img src='img/profile_login.jpeg' class="profile"> <!-- Immagine profilo -->
+        </div> 
+
+        <div class="error" style="display: %display-error%;">
+            <p>%error%</p>
+        </div>
+
+        <!-- Sezione campi di register -->
+        <div class= "login">
+            <!-- Campo per il nome del gestore -->
+            <div class= "gestore">
+                <label for="owner_name">Nome del gestore:</label><br> <!-- Etichetta per il campo -->
+                <input  class= "InputGestore" type="text" placeholder="Inserici Gestore" name="owner_name" id="owner_name"><br> <!-- Input per il nome del gestore -->
+            </div>
+            <!-- Campo per il nome della pizzeria -->
+            <div class= "gestore">
+                <label  for="name">Nome della pizzeria:</label><br> <!-- Etichetta per il campo -->
+                <input type="text" placeholder="Inserisci Nome Pizzeria" name="name" id="name"><br> <!-- Input per il nome della pizzeria -->
+            </div>
+            <!-- Pulsante per registrarsi -->
+                <input class="inputlogin" type="submit" value="Registrati">
+                <!-- Sezione di accesso -->
+                <div class="register">
+                    <p>Hai già un account? <a href="login" style="color: black;">Login</a></p>
+                </div>
+        </div>
+
+    </form>
+</body>
+</html>

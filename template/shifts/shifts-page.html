@@ -1,0 +1,36 @@
+<div class="shifts">
+    <div class="shifts-header">
+        <div class="shifts-title">
+            <h2>Turni della settimana %start-week% fino %end-week%</h2>
+            <p>Visualizza e gestisci i turni dei dipendenti della tua pizzeria.</p>
+        </div>
+
+    </div>
+    <div class="shifts-description">
+        <p>Seleziona la data di creazione dei turni di lavoro</p>
+        <div class="shifts-timestamp">
+            <select id="select-timestamp">
+                %options%
+            </select>
+        </div>
+    </div>
+
+    <div class="error" id="shifts-error" style="display: none;">
+        <p></p>
+    </div>
+    
+    <div class="week">
+        %days%
+    </div>
+    <div class="buttons-section">
+        <div class="buttons">
+            <button id="upload-shifts">Carica Turni sul Server</button>
+            <button id="download-pdf" >Scarica PDF</button>
+            <button id="download-img">Scarica Immagine</button>
+        </div>
+    </div>
+</div>
+<div class="employees">
+    %employees%
+</div>
+<script src="shifts-main.js"></script>
