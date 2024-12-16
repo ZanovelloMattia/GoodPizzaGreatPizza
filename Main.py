@@ -50,7 +50,7 @@ def get_all_files(path = "static"):
     return html_pages, css_files, js_files, images
 
 def main():
-    hostname = "192.168.1.70"
+    hostname = "localhost"
     server_port = 80
 
 

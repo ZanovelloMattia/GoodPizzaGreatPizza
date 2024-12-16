@@ -5,6 +5,7 @@ from reportlab.lib.pagesizes import A4
 from DatabaseManager import get_pizzeria_name
 from PIL import Image, ImageDraw, ImageFont
 import io
+import json
 
 week_shifts = {}  # Dizionario globale per memorizzare i turni settimanali
 
@@ -33,18 +34,21 @@ def load_shifts(id: int, timestamp: datetime) -> bool:
     week_shifts = {}  # Reset dei turni settimanali
 
     shifts = DB.get_shift_from_timestamp(id, timestamp)  # Ottiene i turni dal database usando un timestamp
+    print("shiftsssss", shifts)
     
     if shifts is None:  # Controlla se i turni esistono
         return False
     
     employees_dict = {}  # TODO: Aggiungere supporto per ridurre le query al database
-    
+    counter = 0
     for day_key, shifts in shifts.items():  # Itera sui turni per ogni giorno
         day = {}
         for shift, employee in shifts.items():  # Itera sui turni e recupera i dettagli degli impiegati
-            day[shift] = DB.get_employee(employee['id'])
+            print(employee)
+            day[str(employee['id']) +  "#" + str(counter)] = DB.get_employee(employee['id'])
+            counter += 1
         week_shifts[day_key] = day  # Memorizza i turni della giornata nel dizionario globale
-
+    print(week_shifts)
     return True
 
 def generate_shifts(id: int) -> bool:  # TODO: Aggiungere casualità nella generazione dei turni
@@ -64,10 +68,10 @@ def generate_shifts(id: int) -> bool:  # TODO: Aggiungere casualità nella gener
         day_shifts = {}
         for j in range(3):  # Genera 3 turni per giorno
             index = counter % len(employees_keys)
-            day_shifts[str(employees_keys[index])] = employees_dict[employees_keys[index]]
+            day_shifts[str(employees_keys[index]) +  "#" + str(counter)] = employees_dict[employees_keys[index]]
             counter += 1
         week_shifts["day" + str(i)] = day_shifts  # Memorizza i turni generati
-
+    print(week_shifts)
     return True
 
 def generate_html_employees(id: int) -> str:
@@ -113,7 +117,7 @@ def generate_html_shifts(id: int, timestamp: datetime = None) -> str:
             day_comps += (day_comp_html_template.replace("%name%", employee["name"])
                           .replace("%surname%", employee["surname"])
                           .replace("%id%", str(key))
-                          .replace("%only-id%", str(key)))
+                          .replace("%only-id%", str(key).split('#')[0]))
 
         day_html = day_html.replace("%day-comps%", day_comps)
         counter += 1

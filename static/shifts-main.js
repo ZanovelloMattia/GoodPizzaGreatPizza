@@ -93,7 +93,7 @@ loadBtn.addEventListener('click', async () => {
         let dayShifts = {};
         for (let j = 1; j < day.childElementCount; j++) {
             employee = day.children[j]
-            employeeID = employee.querySelector(".id").textContent
+            employeeID = employee.querySelector(".id").textContent.split('#')[0]
             
             dayShifts[(j - 1).toString()] = employeeID;
         }
@@ -101,6 +101,7 @@ loadBtn.addEventListener('click', async () => {
     }
 
     try {
+        console.log(shifts)
         const response = await fetch('/shifts', {
             method: 'post',
             body: JSON.stringify(shifts)

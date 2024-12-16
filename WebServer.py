@@ -426,6 +426,7 @@ class Server_handler(BaseHTTPRequestHandler):
             # Decodifica i dati JSON inviati nel corpo della richiesta
             post_data = json.loads(self.rfile.read(content_lenght).decode())
             final_data = {}
+            print('post data', post_data)
             
             # Riorganizza i dati per associarli correttamente a turni e dipendenti
             for day_key, shifts in post_data.items():
